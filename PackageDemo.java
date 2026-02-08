@@ -1,5 +1,5 @@
 package mypkg;
-import mypkg.SamePackageDemo;
+import mpkg.SamePackageDemo;
 class PackageDemo {
 	public static void main(String[] args) {
 		SamePackageDemo spd = new SamePackageDemo();
