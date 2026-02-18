@@ -1,19 +1,19 @@
-class DemoTester {
-	int age;
-	private DemoTester() {
-		age = 20;
+abstract class AbstractDemo {
+	public abstract void show();
+}
+class NonAbstractDemo extends AbstractDemo {
+	public void show() {
+		System.out.println("Show Method");
 	}
-	public void display() {
-		System.out.println("Display method");
-	}
-	public static DemoTester getInstance() {
-		return new DemoTester();
+}
+class Factory {
+	public static AbstractDemo getInstance() {
+		return new NonAbstractDemo();
 	}
 }
 class MainClass {
 	public static void main(String[] args) {
-		DemoTester dt = DemoTester.getInstance();
-		dt.display();
-		System.out.println(dt.age);
+		AbstractDemo ad = Factory.getInstance();
+		ad.show();
 	}
 }

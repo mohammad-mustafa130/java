@@ -1,5 +1,5 @@
-class SearchingAlgos {
-	int linearSearch(int[] arr, int data) {
+public class SearchingAlgos {
+	public int search(int[] arr, int data) {
 		int foundat = -1;
 		for(int i = 0; i < arr.length; i++) {
 			if(arr[i] == data) {
@@ -8,5 +8,10 @@ class SearchingAlgos {
 			}
 		}
 		return foundat;
+	}
+}
+class Factory {
+	public static SearchingAlgos getInstance() {
+		return new NewSearchingAlgos();
 	}
 }
