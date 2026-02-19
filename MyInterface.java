@@ -1,6 +1,9 @@
-public interface MyInterface {
-	void display();
-	void show();
-	void printer();
+interface MyInterface {
+	static void mymethod() {
+		System.out.println("my method");
+	}
+	default void display() { }
+	default void show() { }
+	default void printer() { }
 }
 
