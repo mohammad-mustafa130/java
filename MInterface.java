@@ -1,0 +1,3 @@
+interface MInterface {
+	void display();
+}
