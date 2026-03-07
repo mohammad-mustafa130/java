@@ -37,4 +37,42 @@ public class SinglyLinkedList {
 			System.out.println("List is empty");
 		}
 	}
+	public void addNode(int data, int pos) {
+		Node temp = new Node(data);
+		if(pos == 1 || head == null) {
+			temp.next = head;
+			head = temp;
+		} else {
+			int count = 1;
+			Node p = head;
+			while(p.next != null && count < pos - 1) {
+				p = p.next;
+				count++;
+			}
+			temp.next = p.next;
+			p.next = temp;
+		}
+	}
+	public void deleteNode(int pos) {
+		Node p, q;
+		if(head == null) {
+			System.out.println("Empty List");
+		}
+		else if(pos == 1) {
+			p = head;
+			head = p.next;
+			p.next = null;
+		} else {
+			int count = 1;
+			p = head;
+			q = head;
+			while(q.next != null && count < pos) {
+				p = q;
+				q = q.next;
+				count++;
+			}
+			p.next = q.next;
+			q.next = null;
+		}
+	}
 }
