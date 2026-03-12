@@ -1,5 +1,6 @@
 package mypkg;
-class Employee {
+import java.io.Serializable;
+public class Employee extends Manager implements MyInterface, Serializable {
 	int age;
 	String name;
 	public Employee() {
@@ -11,4 +12,9 @@ class Employee {
 		System.out.println(name);
 	}
 }
-
+class Manager {
+	public void show() {
+		System.out.println("Manager Class");
+	}
+}
+interface MyInterface { }
