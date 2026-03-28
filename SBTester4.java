@@ -1,13 +1,18 @@
-class SBTester2 {
+class SBTester4 {
 	public static void main(String[] args) {
-		StringBuilder sb = new StringBuilder();
-		sb.append("Lucknow");
+		StringBuffer sb = new StringBuffer("Lucknow");
 		System.out.println(sb.length() + " " + sb.capacity());
 
-		sb.append(" Junction");
+		sb.trimToSize();
 		System.out.println(sb.length() + " " + sb.capacity());
 
-		sb.append(" East");
+		sb.ensureCapacity(50);
 		System.out.println(sb.length() + " " + sb.capacity());
+
+		sb.replace(4, 7, "later");
+		System.out.println(sb);
+
+		sb.reverse();
+		System.out.println(sb);
 	}
 }
