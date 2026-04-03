@@ -43,14 +43,64 @@ class DoublyLinkedList {
 			} while(head != null);
 		}
 		System.out.println();
-		System.out.println();
-
-		if(head == null) {
+		/*if(head == null) {
 			do {
 			System.out.print(temp.data + " ");
 			temp = temp.prev;
 			} while(temp != null);
 		}
-		System.out.println();
+		System.out.println();*/
+	}
+	public void addNode(int data, int pos) {
+		Node temp = new Node(data);
+		if(pos == 1) {
+			if(head == null) {
+				head = temp;
+			} else {
+				temp.next = head;
+				head.prev = temp;
+				head = temp;
+			}
+		} else {
+			if(head == null) {
+				System.out.println("Node cannot be inserted at given position");
+			}
+			else {
+				int count = 1;
+				Node p = head, q = head;
+				while((q != null) && (count < pos)) {
+					p = q;
+					q = q.next;
+					count++;
+				}
+				temp.prev = p;
+				temp.next = q;
+				p.next = temp;
+				if(q != null) q.prev = temp;
+			}
+		}
+	}
+	public void deleteNode(int pos) {
+		Node p = head, q = head.next;
+		if(pos == 1) {
+			if(head == null) {
+				System.out.println("List is empty");
+			} else {
+				head = p.next;
+				q.prev = null;
+				p.next = null;
+			}
+		} else {
+			int count = 1;
+			while((q.next != null) && (count < pos-1)) {
+				p = q;
+				q = q.next;
+				count++;
+			}
+			p.next = q.next;
+			q.next = null;
+			q.prev = null;
+			if(q.next != null) q.next.prev = p;
+		}
 	}
 }
