@@ -1,4 +1,4 @@
-class Deque {
+class Deque2 {
 	private class Node {
 		Node prev;
 		int data;
