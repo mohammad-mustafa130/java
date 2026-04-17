@@ -79,43 +79,28 @@ class BST {
 			if(node.left != null) st.push(node.left);
 		}
 		System.out.println();
-		System.out.println();
 	}
 	public void postOrderTraversal(Node root) {
-		if(root == null) return;
-
-		Stack<Node> st1 = new Stack<>();
-		Stack<Integer> st2 = new Stack<>();
-
-		st1.push(root);
-
-		while(!st1.isEmpty()) {
-			Node node = st1.pop();
-			st2.push(node.data);
-
-			if(node.left != null) st1.push(node.left);
-			if(node.right != null) st1.push(node.right);
-		}
-		while(!st2.isEmpty()) {
-			System.out.print(st2.pop() + " ");
-		}
-		System.out.println();
-		System.out.println();
-	}
-	public void inOrderTraversal(Node root) {
-		if(root == null) return;
-
+		List<Integer> list = new ArrayList<>();
 		Stack<Node> st = new Stack<>();
 
-		while(root != null || !st.isEmpty()) {
-			while(root != null) {
-				st.push(root);
-				root = root.left;
-			}
+		st.push(root);
+		while(!st.empty()) {
 			Node node = st.pop();
-			System.out.print(node.data + " ");
+			
+			if(node.right != null) st.push(node.right);
+			else {
+				list.add(node.data);
+			}
 
-			root = node.right;
+			if(node.left != null) st.push(node.left);
+			else {
+				if(list.contains(node.data)) list.add(node.data);
+			}
+
+		}
+		for(int i : list) {
+			System.out.print(i + " ");
 		}
 		System.out.println();
 	}
