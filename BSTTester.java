@@ -5,7 +5,7 @@ class BSTTester {
 		b.createTree(7);
 
 		System.out.println("Level Order Traversal: ");
-		b.traverseTree(b.root);
+		b.levelOrderTraversal(b.root);
 
 		
 		System.out.println("PreOrder Traversal: ");
@@ -16,5 +16,11 @@ class BSTTester {
 
 		System.out.println("Inorder Traversal: ");
 		b.inOrderTraversal(b.root);
+
+		BST.Node node = b.search(b.root, 70);
+		if(node == null) {
+			System.out.println("Element not found");
+		}
+		else System.out.println("Element found");
 	}
 }

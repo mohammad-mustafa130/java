@@ -1,7 +1,7 @@
 import java.util.*;
 
 class BST {
-	private class Node {
+	class Node {
 		int data;
 		Node left;
 		Node right;
@@ -36,7 +36,7 @@ class BST {
 
 		System.out.println();
 	}
-	public void traverseTree(Node root) {
+	public void levelOrderTraversal(Node root) {
 		List<List<Integer>> result = new ArrayList<>();
 
 		if(root == null) {
@@ -118,5 +118,14 @@ class BST {
 			root = node.right;
 		}
 		System.out.println();
+	}
+	Node search(Node head, int data) {
+		Node temp = head;
+		while(temp != null) {
+			if(temp.data == data) return temp;
+			else if(temp.data < data) temp = temp.right;
+			else temp = temp.left;
+		}
+		return null;
 	}
 }
