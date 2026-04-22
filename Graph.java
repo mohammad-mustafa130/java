@@ -10,7 +10,7 @@ class Graph {
 			next = t;
 		}
 	}
-	private Node[] adj;
+	Node[] adj;
 	Graph(int v, boolean flag) {
 		Vcnt = v;
 		Ecnt = 0;
@@ -58,6 +58,18 @@ class Graph {
 		}
 		public boolean end() {
 			return t == null;
+		}
+	}
+	public void show(Graph g) {
+		for(int i = 0; i < g.v(); i++) {
+			System.out.print(i + " : ");
+
+			AdjList a = g.getAdjList(i);
+
+			for(int j = a.beg(); !a.end(); j = a.nxt()) {
+				System.out.print(j + " ");
+			}
+			System.out.println();
 		}
 	}
 }

@@ -5,7 +5,9 @@ class GraphPath {
 	private boolean searchR(int v, int w) {
 		if(v == w) return true;
 		visited[v] = true;
+
 		Graph.AdjList a = g.getAdjList(v);
+ 
 		for(int i = a.beg(); !a.end(); i = a.nxt()) {
 			if(!visited[i]) {
 				if(searchR(i, w)) return true;
