@@ -9,10 +9,10 @@ class GraphAM {
 		digraph = flag;
 		adj = new boolean[v][v];
 	}
-	int V() {
+	int v() {
 		return Vcnt;
 	}
-	int E() {
+	int e() {
 		return Ecnt;
 	}
 	boolean directed() {
@@ -56,13 +56,24 @@ class GraphAM {
 			return nxt();
 		}
 		public int nxt() {
-			for(i++; i < V(); i++) {
+			for(i++; i < v(); i++) {
 				if(edge(v,i) == true) return i;
 			}
 			return -1;
 		}
 		public boolean end() {
-			return i >= V();
+			return i >= v();
+		}
+	}
+	void show(GraphAM g) {
+		for(int i = 0; i < g.v(); i++) {
+			System.out.print(i + " : ");
+			AdjList a = g.getAdjList(i);
+
+			for(int j = a.beg(); !a.end(); j = a.nxt()) {
+				System.out.print(j + " ");
+			}
+			System.out.println();
 		}
 	}
 }
