@@ -16,5 +16,15 @@ class GraphTester {
 
 		System.out.println("Path: ");
 		g.show(g);
+
+		GraphDegree gd = new GraphDegree(g);
+		int degree = gd.degree(0);
+
+		System.out.println("Degree:");
+		System.out.println(degree);
+
+		System.out.println("Random graph: ");
+		g.randE(g, 50);
+		g.show(g);
 	}
 }

@@ -1,3 +1,4 @@
+import java.util.*;
 class Graph {
 	private int Vcnt, Ecnt;
 	private boolean digraph;
@@ -70,6 +71,13 @@ class Graph {
 				System.out.print(j + " ");
 			}
 			System.out.println();
+		}
+	}
+	void randE(Graph g, int e) {
+		for(int i = 0; i < e; i++) {
+			int v = (int)(g.v() * Math.random());
+			int w = (int)(g.v() * Math.random());
+			g.insert(v,w);
 		}
 	}
 }
