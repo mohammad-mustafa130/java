@@ -12,7 +12,7 @@ class GraphTester {
 		GraphPath gp = new GraphPath(g, 1, 2);
 		boolean result = gp.exists();
 
-		//System.out.println("Path exist: " + result);
+		System.out.println("Path exist: " + result);
 
 		System.out.println("Path: ");
 		g.show(g);
@@ -26,5 +26,9 @@ class GraphTester {
 		System.out.println("Random graph: ");
 		g.randE(g, 50);
 		g.show(g);
+
+		System.out.println("DFS Traversal: ");
+		GraphDFS gdfs = new GraphDFS(g, 5);
+		gdfs.searchC(4);
 	}
 }
